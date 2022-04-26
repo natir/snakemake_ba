@@ -1,0 +1,47 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Pierre Marijon", email = "pierre@marijon.fr"},
+]
+dependencies = [
+    "pandas>=1.4.2",
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[tool.pdm]
+
+[tool.pdm.scripts]
+test = "pytest tests/"
+lint = "pre-commit run --all-files"
+
+[build-system]
+requires = ["pdm-pep517>=0.12.0"]
+build-backend = "pdm.pep517.api"
+
+[tool.isort]
+profile = "black"
+atomic = true
+skip_glob = ["*/setup.py", "pdm/_vendor/*"]
+filter_files = true
+known_first_party = ["snakemake_pa"]
+known_third_party = [
+]
+
+[tool.black]
+line-length = 88
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
