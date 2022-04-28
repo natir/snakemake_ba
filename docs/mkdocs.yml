@@ -1,0 +1,23 @@
+site_name: "Snakemake Benchmark Analyzer"
+
+repo_url: https://github.com/natir/snakemake_ba
+
+theme:
+  name: "material"
+
+nav:
+  - Home: index.md
+  - Api:
+      - parser.md
+      - plot.md
+
+plugins:
+- search
+- mkdocstrings:
+    default_handler: python
+    handlers:
+      python:
+        rendering:
+          show_source: false
+    watch:
+      - ../snakemake_ba

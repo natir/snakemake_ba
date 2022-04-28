@@ -15,8 +15,24 @@ license = {text = "MIT"}
 [tool.pdm]
 
 [tool.pdm.scripts]
-test = "pytest tests/"
-lint = "pre-commit run --all-files"
+test = { shell = "pytest tests/", help = "Run test" }
+lint = { shell = "pre-commit run --all-files", help = "Run lint tools" }
+doc = { shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview" }
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-xdist>=1.31.0"
+]
+
+doc = [
+    "mkdocs>=1.1",
+    "mkdocs-material>=7.3",
+    "mkdocstrings[python]>=0.18",
+    "markdown-include>=0.5.1",
+]
 
 [build-system]
 requires = ["pdm-pep517>=0.12.0"]
