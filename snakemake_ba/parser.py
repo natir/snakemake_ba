@@ -18,7 +18,7 @@ def stats_of_rules(
 
     Args:
         working_dir (pathlib.Path):
-           working directory where the studied snakemake was executed
+            working directory where the studied snakemake was executed
         snakemake_bench_patern (str): string set in `benchmark` section
 
     Returns:
@@ -106,7 +106,7 @@ def __recurse_scan(target: pathlib.Path) -> typing.Iterator[pathlib.Path]:
 
 
 def __wildcard_to_regex(
-    snakemake_bench_patern: str,
+    snakemake_bench_pattern: str,
 ) -> typing.Tuple[str, re.Pattern, typing.List[str]]:
     """Analyse a snakemake benchmark string to generate usefull stuff
 
@@ -115,14 +115,14 @@ def __wildcard_to_regex(
 
     Returns:
         tuple: A tuple with, pathlib.Path.match pattern string,
-               [re.Pattern][] to extract wildcards information of benchmark path,
+               re.Pattern to extract wildcards information of benchmark path,
                list of wildcards name
     """
 
     wildcard_re = re.compile(r"{(?P<name>[^},]+),?(?P<regex>[^}]+)?}")
 
     wildcard_name = [
-        match.group("name") for match in wildcard_re.finditer(snakemake_bench_patern)
+        match.group("name") for match in wildcard_re.finditer(snakemake_bench_pattern)
     ]
 
     def substitute(match: re.Match):
@@ -131,10 +131,10 @@ def __wildcard_to_regex(
         else:
             return f"(?P<{match.group('name')}>{match.group('regex')})"
 
-    wildcard_value_re = re.compile(wildcard_re.sub(substitute, snakemake_bench_patern))
+    wildcard_value_re = re.compile(wildcard_re.sub(substitute, snakemake_bench_pattern))
 
     return (
-        wildcard_re.sub("*", snakemake_bench_patern),
+        wildcard_re.sub("*", snakemake_bench_pattern),
         wildcard_value_re,
         wildcard_name,
     )
