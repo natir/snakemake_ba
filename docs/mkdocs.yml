@@ -7,7 +7,7 @@ theme:
 
 nav:
   - Home: index.md
-  - Api:
+  - References:
       - parser.md
       - plot.md
 
@@ -17,7 +17,12 @@ plugins:
     default_handler: python
     handlers:
       python:
+        import:
+          - https://pandas.pydata.org/docs/objects.inv
         rendering:
           show_source: false
+        selection:
+          docstring_style: google
+
     watch:
       - ../snakemake_ba

@@ -11,7 +11,16 @@ import pandas  # type: ignore
 def dynamic_scatter_plot(
     df: pandas.DataFrame, x: str, y: str, group: str
 ) -> altair.Chart:
-    """Generate a dynamic scatter plot for x and y and group"""
+    """Generate an altair dynamic scatter plot
+
+    Args:
+        x (str): data show on x axis
+        y (str): data show on y axis
+        group (str): dataframe column use to group data
+
+    Returns:
+        chart (altair.Chart): scatter plot
+    """
 
     selection = altair.selection_multi(fields=[group], bind="legend")
 
