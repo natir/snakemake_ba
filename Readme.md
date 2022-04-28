@@ -1,4 +1,5 @@
 [![publish_docs](https://github.com/natir/snakemake_ba/actions/workflows/docs.yml/badge.svg)](https://natir.github.io/snakemake_ba/)
+[![tests](https://github.com/natir/snakemake_ba/actions/workflows/ci.yml/badge.svg)](https://github.com/natir/snakemake_ba/actions/workflows/ci.yml)
 
 # Snakemake Benchmark Analyzer
 

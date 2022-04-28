@@ -9,7 +9,7 @@ dependencies = [
     "pandas>=1.4.2",
     "altair>=4.2.0",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = {text = "MIT"}
 
 [tool.pdm]
@@ -41,7 +41,6 @@ build-backend = "pdm.pep517.api"
 [tool.isort]
 profile = "black"
 atomic = true
-skip_glob = ["*/setup.py", "pdm/_vendor/*"]
 filter_files = true
 known_first_party = ["snakemake_pa"]
 known_third_party = [
