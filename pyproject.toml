@@ -1,12 +1,13 @@
 [project]
-name = ""
-version = ""
-description = ""
+name = "snakemake_ba"
+version = "0.1"
+description = "found and compile benchmark file associate to a snakemake rules in a `pandas.DataFrame`"
 authors = [
     {name = "Pierre Marijon", email = "pierre@marijon.fr"},
 ]
 dependencies = [
     "pandas>=1.4.2",
+    "altair>=4.2.0",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
